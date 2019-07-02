@@ -1,0 +1,37 @@
+<!--
+  Generated template for the ShowPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color="dark">
+    <ion-title text-center> <img id="showwow" src="../../assets/imgs/wow.png" alt=""> show</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding color="primary"id="cuerpo">
+  
+  <ion-searchbar (ionInput)="getItems($event)" [animated]="true" [(ngModel)]="PredictShowSymptom"[ngModelOptions]="{standalone: true}"></ion-searchbar>
+  <ion-list *ngIf="showPrediction">
+    <ion-item *ngFor="let item of items | slice:0:5 let i = index" (click)="setValueSymptom(item)">
+      {{ item }}
+    </ion-item>
+  </ion-list>
+
+  <ion-list *ngIf="boleanlist">
+    <ion-item (click)="seting()">
+      {{ Match }}
+    </ion-item>
+  </ion-list>
+  <button  ion-button block (click)="sintomSelected()" [disabled]="!PredictShowSymptom">Block Button</button>
+ 
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar color="danger">
+    <ion-title text-center>
+      Footer
+    </ion-title>
+  </ion-toolbar>
+</ion-footer>
